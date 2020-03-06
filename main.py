@@ -70,5 +70,15 @@ def tanh_lut(depth, integer_width, total_width):
     return content
 
 
+def write_lut_txt(file, content):
+    f = open(file, "w+")
+    for i in content:
+        f.write(i + ",\n")
+    f.close()
+
+
 s = sigmoid_lut(depth=16, integer_width=1, total_width=32)
 t = tanh_lut(depth=16, integer_width=1, total_width=32)
+
+write_lut_txt("sigmoid_lut.txt", s)
+write_lut_txt("tanh_lut.txt", t)
