@@ -101,5 +101,3 @@ convert_weights("weights/b_fc.csv", integer_width=1, total_width=32)
 convert_weights("weights/w_lstm.csv", integer_width=1, total_width=32)
 convert_weights("weights/u_lstm.csv", integer_width=1, total_width=32)
 convert_weights("weights/b_lstm.csv", integer_width=1, total_width=32)
-
-print(bin_dec('00000000000101110100001111001110', integer_width=1, total_width=32))
