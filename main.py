@@ -78,14 +78,14 @@ def write_lut_txt(file, content):
     f.close()
 
 
-def convert_weights(file, integer_width, total_width):
-    f_dec = open(file, "r")
+def convert_weights(file_in, file_out, integer_width, total_width):
+    f_dec = open(file_in, "r")
     lines_dec = f_dec.readlines()
-    f_bin = open(file.split('.')[0] + ".txt", "w+")
+    f_bin = open(file_out, "w+")
     for line in lines_dec:
         for i in line.split(' '):
             i = dec_bin(i, integer_width=integer_width, total_width=total_width)
-            f_bin.write(i + ",\n")
+            f_bin.write(i + " ")
     f_bin.close()
     f_dec.close()
 
@@ -93,11 +93,11 @@ def convert_weights(file, integer_width, total_width):
 s = sigmoid_lut(depth=16, integer_width=1, total_width=32)
 t = tanh_lut(depth=16, integer_width=1, total_width=32)
 
-write_lut_txt("sigmoid_lut.txt", s)
-write_lut_txt("tanh_lut.txt", t)
+write_lut_txt("memory/luts_bin/sigmoid_lut.mem", s)
+write_lut_txt("memory/luts_bin/tanh_lut.mem", t)
 
-convert_weights("weights/w_fc.csv", integer_width=1, total_width=32)
-convert_weights("weights/b_fc.csv", integer_width=1, total_width=32)
-convert_weights("weights/w_lstm.csv", integer_width=1, total_width=32)
-convert_weights("weights/u_lstm.csv", integer_width=1, total_width=32)
-convert_weights("weights/b_lstm.csv", integer_width=1, total_width=32)
+convert_weights("memory/weights_csv/w_fc.csv", "memory/weights_bin/w_fc.mem", integer_width=1, total_width=32)
+convert_weights("memory/weights_csv/b_fc.csv", "memory/weights_bin/b_fc.mem", integer_width=1, total_width=32)
+convert_weights("memory/weights_csv/w_lstm.csv", "memory/weights_bin/w_lstm.mem", integer_width=1, total_width=32)
+convert_weights("memory/weights_csv/u_lstm.csv", "memory/weights_bin/u_lstm.mem", integer_width=1, total_width=32)
+convert_weights("memory/weights_csv/b_lstm.csv", "memory/weights_bin/b_lstm.mem", integer_width=1, total_width=32)
