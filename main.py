@@ -74,7 +74,7 @@ def tanh_lut(depth, integer_width, total_width):
 def write_lut_txt(file, content):
     f = open(file, "w+")
     for i in content:
-        f.write(i + ",\n")
+        f.write(i + "\n")
     f.close()
 
 
@@ -85,7 +85,7 @@ def convert_weights(file_in, file_out, integer_width, total_width):
     for line in lines_dec:
         for i in line.split(' '):
             i = dec_bin(i, integer_width=integer_width, total_width=total_width)
-            f_bin.write(i + " ")
+            f_bin.write(i + "\n")
     f_bin.close()
     f_dec.close()
 

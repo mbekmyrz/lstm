@@ -1,8 +1,8 @@
 //module always assumes 1 bit for sign
-module multiplier #
-(
-  parameter integer DATA_WIDTH	= 32,
-  parameter integer WEIGHT_WIDTH	= 32
+module multiplier
+#(
+  parameter integer DATA_WIDTH	 = 32,
+  parameter integer WEIGHT_WIDTH = 32
 )
 (
   input [DATA_WIDTH-1:0] data,

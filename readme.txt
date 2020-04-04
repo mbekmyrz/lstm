@@ -10,8 +10,3 @@ memory:
 
 Fixed point representation: [sign bit, integer bits, fractional bits].
 Sign bit: 0 - positive, 1 - negative.
-
-Multiplier outputs binary multiplication of data and weight.
-The width of data = DATA_WIDTH.
-The width of weight = WEIGHT_WIDTH.
-The width of output = DATA_WIDTH.
